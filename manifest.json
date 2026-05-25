@@ -1,0 +1,13 @@
+{
+   "chrome_url_overrides": {
+      "newtab": "blank.html"
+   },
+   "icons": {
+      "16": "image/app_16.png",
+      "48": "image/app_48.png"
+   },
+   "manifest_version": 3,
+   "name": "eTab",
+   "description": "空白新建标签页",
+   "version": "1.0.0"
+}
