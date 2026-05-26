@@ -1,0 +1,61 @@
+/* 全局重置与过渡动画 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 暗黑模式 (默认) */
+body.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+/* 亮色模式 */
+body.light {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* 按钮基础样式 */
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    opacity: 0.1;
+}
+
+#theme-toggle:hover {
+    opacity: 1;
+}
+
+/* 按钮在不同模式下的样式 */
+body.dark #theme-toggle {
+    background-color: #409EFF;
+    color: #fff;
+}
+
+body.light #theme-toggle {
+    background-color: #5CB87A;
+    color: #333;
+}
+
+/* 控制图标显示/隐藏 */
+.icon-sun, .icon-moon {
+    display: inline-block;
+}
+
+body.dark .icon-sun { display: none; }
+body.dark .icon-moon { display: inline-block; }
+
+body.light .icon-sun { display: inline-block; }
+body.light .icon-moon { display: none; }
