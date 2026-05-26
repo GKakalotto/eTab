@@ -4,19 +4,16 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* 暗黑模式 (默认) */
 body.dark {
     background-color: #333;
-    color: #fff;
 }
 
 /* 亮色模式 */
 body.light {
-    background-color: #ffffff;
-    color: #333;
+    background-color: #fff;
 }
 
 /* 按钮基础样式 */
@@ -41,12 +38,10 @@ body.light {
 /* 按钮在不同模式下的样式 */
 body.dark #theme-toggle {
     background-color: #409EFF;
-    color: #fff;
 }
 
 body.light #theme-toggle {
     background-color: #5CB87A;
-    color: #333;
 }
 
 /* 控制图标显示/隐藏 */
