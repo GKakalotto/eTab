@@ -14,6 +14,24 @@
         <span class="icon-moon">🌙</span>
     </button>
 
+    <main class="search-container">
+        <form id="search-form" class="search-box">
+            <div class="engine-picker" id="engine-picker">
+                <button type="button" class="engine-trigger" id="engine-trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="engine-dot" id="engine-dot"></span>
+                    <span class="engine-label" id="engine-label">Google</span>
+                    <svg class="engine-chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+                        <path fill="currentColor" d="M2.5 4.5 6 8 9.5 4.5"/>
+                    </svg>
+                </button>
+                <ul class="engine-menu" id="engine-menu" role="listbox" hidden></ul>
+            </div>
+            <input type="hidden" id="search-engine" value="google">
+            <input type="text" id="search-input" placeholder="搜索或输入网址" autocomplete="off" autofocus>
+            <button type="submit" id="search-btn">搜索</button>
+        </form>
+    </main>
+
     <script src="app.js"></script>
 </body>
 </html>
