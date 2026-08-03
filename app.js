@@ -5,9 +5,9 @@ const SEARCH_ENGINES = {
 };
 
 const ENGINE_LIST = [
-    { value: 'google', name: 'Google', color: '#4285F4' },
-    { value: 'bing', name: 'Bing', color: '#008373' },
-    { value: 'baidu', name: '百度', color: '#2932E1' },
+    { value: 'google', name: 'Google', icon: 'https://www.google.com/favicon.ico' },
+    { value: 'bing', name: 'Bing', icon: 'https://cn.bing.com/favicon.ico' },
+    { value: 'baidu', name: '百度', icon: 'https://www.baidu.com/favicon.ico' },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const enginePicker = document.getElementById('engine-picker');
     const engineTrigger = document.getElementById('engine-trigger');
     const engineMenu = document.getElementById('engine-menu');
-    const engineDot = document.getElementById('engine-dot');
-    const engineLabel = document.getElementById('engine-label');
+    const engineIcon = document.getElementById('engine-icon');
     const body = document.body;
 
     const savedTheme = localStorage.getItem('theme');
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.className = 'engine-option';
         item.role = 'option';
         item.dataset.value = engine.value;
-        item.innerHTML = `<span class="engine-dot" style="background-color:${engine.color}"></span><span>${engine.name}</span>`;
+        item.innerHTML = `<img class="engine-icon" src="${engine.icon}" alt="" width="16" height="16"><span>${engine.name}</span>`;
         item.addEventListener('click', (event) => {
             event.stopPropagation();
             selectEngine(engine.value);
@@ -73,8 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         searchEngine.value = engine.value;
-        engineDot.style.backgroundColor = engine.color;
-        engineLabel.textContent = engine.name;
+        engineIcon.src = engine.icon;
+        engineIcon.alt = engine.name;
+        engineTrigger.setAttribute('aria-label', `搜索引擎: ${engine.name}`);
 
         engineMenu.querySelectorAll('.engine-option').forEach((option) => {
             option.classList.toggle('active', option.dataset.value === value);

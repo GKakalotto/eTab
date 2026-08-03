@@ -17,9 +17,8 @@
     <main class="search-container">
         <form id="search-form" class="search-box">
             <div class="engine-picker" id="engine-picker">
-                <button type="button" class="engine-trigger" id="engine-trigger" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="engine-dot" id="engine-dot"></span>
-                    <span class="engine-label" id="engine-label">Google</span>
+                <button type="button" class="engine-trigger" id="engine-trigger" aria-label="搜索引擎: Google" aria-haspopup="listbox" aria-expanded="false">
+                    <img class="engine-icon" id="engine-icon" src="https://www.google.com/favicon.ico" alt="Google" width="16" height="16">
                     <svg class="engine-chevron" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
                         <path fill="currentColor" d="M2.5 4.5 6 8 9.5 4.5"/>
                     </svg>
@@ -28,7 +27,12 @@
             </div>
             <input type="hidden" id="search-engine" value="google">
             <input type="text" id="search-input" placeholder="搜索或输入网址" autocomplete="off" autofocus>
-            <button type="submit" id="search-btn">搜索</button>
+            <button type="submit" id="search-btn" aria-label="搜索">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
         </form>
     </main>
 
