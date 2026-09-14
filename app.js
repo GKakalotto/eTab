@@ -5,9 +5,9 @@ const SEARCH_ENGINES = {
 };
 
 const ENGINE_LIST = [
-    { value: 'google', name: 'Google', icon: 'https://www.google.com/favicon.ico' },
-    { value: 'bing', name: 'Bing', icon: 'https://cn.bing.com/favicon.ico' },
-    { value: 'baidu', name: '百度', icon: 'https://www.baidu.com/favicon.ico' },
+    { value: 'google', name: 'Google', icon: 'image/google.ico' },
+    { value: 'bing', name: 'Bing', icon: 'image/bing.ico' },
+    { value: 'baidu', name: '百度', icon: 'image/baidu.ico' },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
