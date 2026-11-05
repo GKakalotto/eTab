@@ -1,0 +1,44 @@
+name: Build Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'          # 推送 v* 标签时自动构建（如 git tag v1.2.5）
+  workflow_dispatch:  # 也支持手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 从 manifest.json 读取版本号，拼进文件名
+      - name: Get version
+        id: version
+        run: |
+          VERSION=$(jq -r .version manifest.json)
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Plugin version: ${VERSION}"
+
+      # 打包成 zip，排除 git 相关与自身
+      - name: Package plugin
+        run: |
+          zip -r "eTab-${{ steps.version.outputs.version }}.zip" . \
+            -x '.git/*' '.github/*' '.gitignore' '*.zip'
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eTab-${{ steps.version.outputs.version }}
+          path: "eTab-${{ steps.version.outputs.version }}.zip"
+
+      # 推送标签时额外发布到 Release（可选，不需要可删除此步）
+      - name: Create release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "eTab-${{ steps.version.outputs.version }}.zip"
