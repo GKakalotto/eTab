@@ -2,8 +2,13 @@ name: Build Plugin
 
 on:
   push:
+    branches:
+      - master        # 推送到 master 自动构建
     tags:
-      - 'v*'          # 推送 v* 标签时自动构建（如 git tag v1.2.5）
+      - 'v*'          # 推送 v* 标签时构建并发布 Release（如 git tag v1.2.5）
+  pull_request:
+    branches:
+      - master        # 提 PR 到 master 也构建（仅验证，不发布）
   workflow_dispatch:  # 也支持手动触发
 
 permissions:
